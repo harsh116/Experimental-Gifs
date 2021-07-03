@@ -45,7 +45,7 @@ function PostComment(props) {
         />
         <div className="writeSection">
           <div className="writeSection_photo col-15">
-            <img srcSet={("images/gif icon.png", "images/gif icon.PNG")} />
+            <img src="images/whatsapp profile pic.jpg"></img>
           </div>
           <div class="writeSection_type col-85">
             <textarea placeholder="Write something here"></textarea>
@@ -60,7 +60,7 @@ function PostComment(props) {
             }}
           >
             <span className="gif_image">
-              <img src="images/gif icon.png" />
+              <img src="images/gif icon.PNG" />
             </span>
             <span className="gif_text"> GIF</span>
           </div>
