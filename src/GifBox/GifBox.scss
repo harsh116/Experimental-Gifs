@@ -1,0 +1,115 @@
+@import "config", "helper";
+
+@mixin transition-ease {
+  transition: all 0.4s ease-in-out;
+}
+
+@mixin media-sm {
+  @media screen and (max-width: 400px) {
+    @content;
+  }
+}
+
+.GifBox {
+  visibility: hidden;
+  opacity: 0;
+
+  border: 2px solid darken(white, 20%);
+
+  background-color: $white-smoke;
+  z-index: 30;
+  position: fixed;
+  width: 30rem;
+  aspect-ratio: 3/2;
+  inset: 0;
+  margin: auto;
+  padding: 0.5rem;
+  @include transition-ease();
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .gifs_max-height-trending {
+    max-height: 65%;
+  }
+
+  .gifs_max-height-search {
+    min-height: 53%;
+    max-height: 53%;
+  }
+
+  .gifs {
+    max-width: 100%;
+
+    padding: 1rem;
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+
+    img {
+      height: 100px;
+      width: 100px;
+      cursor: pointer;
+      //   aspect-ratio: 1/1;
+    }
+
+    img.selected {
+      border: 4px solid blue;
+      box-sizing: border-box;
+    }
+  }
+
+  .gifSearchBar {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+    input {
+      margin-right: 1rem;
+    }
+
+    &_button {
+      background-color: $facebook-color;
+      color: white;
+      border-color: $facebook-color;
+    }
+  }
+}
+
+.confirmSelectGif {
+  display: flex;
+  justify-content: flex-end;
+
+  &_button {
+    background-color: lighten($facebook-color, 20%);
+    color: white;
+    border: none;
+    margin-top: 1.5rem;
+    padding: 0.3rem;
+
+    &.enabled {
+      background-color: $facebook-color;
+      @include transition-ease();
+    }
+
+    &:hover.enabled {
+      transform: scale(1.1);
+    }
+  }
+}
+
+//Responsive
+
+@include media-sm {
+  .GifBox {
+    width: 20rem;
+
+    .gifs {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+$bg-color: #787878;
+$white-smoke: #f5f5f5;
+$facebook-color: #3b5998;
+
+$postCommentBox-height: 50%;
+$writeSection-height: 40%;
+$featuresSection-height: 40%;
+$PostCommentBox_min-height: 240px;
+
+.Navigation {
+  #Trending.selected,
+  #Search.selected {
+    background-color: darken($white-smoke, 10%);
+    // background-color: red;
+    // color: red;
+  }
+}
